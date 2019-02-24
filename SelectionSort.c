@@ -1,29 +1,23 @@
 #include<stdio.h>
-void selectionSort(int *arr, int n) 
+void selectionSort(int arr[], int n) 
 { 
     int i, j, min_idx,temp; 
-  
-    // One by one move boundary of unsorted subarray 
-    for (i = 0; i < n-1; i++) 
+    for (i=0;i<=n-1;i++) 
     { 
-        // Find the minimum element in unsorted array 
         min_idx = i; 
-        for (j = i+1; j < n; j++) 
+        for (j= i+1;j<=n;j++) 
         {
-		   if (arr[j] < arr[min_idx]) 
-            {
+		if (arr[j] < arr[min_idx]) 
+            	{
             	min_idx = j; 	
-			}
-  		}
+		}
+  	}
 			
-		temp = *(arr+min_idx);
-		*(arr+min_idx) = *(arr+i);
-		*(arr+i)=temp;
+		temp = arr[min_idx];
+		arr[min_idx] = arr[i];
+		arr[i]=temp;
     } 
 } 
-  
-
-// Driver program to test above functions 
 int main() 
 { 
     int arr[100];
@@ -34,10 +28,10 @@ int main()
 	for(i=0;i<n;i++)
 		scanf("%d",&arr[i]);
 		
-	selectionSort(arr,n);
+	selectionSort(arr,n-1);
 	
 	printf("Sorted Array: \n");
 	
 	for(i=0;i<n;i++)
-		printf("%d\t",*(arr+i)); 
+		printf("%d\t",arr[i]); 
 } 
