@@ -1,32 +1,26 @@
 #include<stdio.h>
-
 void swap(int *a, int *b)
 {
 	int temp = *a;
 	*a = *b;
 	*b = temp;
 }
-
-
 int partition(int arr[],int start,int end)
 {
 	int i,pivot,pIndex;
 	pivot = arr[end];
-	pIndex = (start-1);
-	
-	for(i=start;i<=(end-1);i++)
+	pIndex = start;
+	for(i=start;i<end;i++)
 	{
 		if(arr[i]<=pivot)
 		{
-			pIndex++;
 			swap(&arr[i],&arr[pIndex]);
-		
+			pIndex++;
 		}
 	}
-	swap(&arr[pIndex+1],&arr[end]);
-	return (pIndex+1);
+	swap(&arr[pIndex],&arr[end]);
+	return(pIndex);
 }
-
 void quickSort(int arr[],int start,int end)
 {
 	if(start<end)
@@ -52,5 +46,5 @@ void main()
 	printf("Sorted Array: \n");
 	
 	for(i=0;i<n;i++)
-		printf("%d  ",*(arr+i));
+		printf("%d  ",arr[i]);
 }
