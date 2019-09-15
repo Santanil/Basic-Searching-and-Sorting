@@ -2,7 +2,7 @@
 void insertionSort(int *arr, int n) 
 { 
    int i, key, j; 
-   for (i = 1; i < n; i++) 
+   for (i = 1; i <= n; i++) 
    { 
        key = arr[i]; 
        j = i; 
@@ -24,7 +24,7 @@ void main()
 	for(i=0;i<n;i++)
 		scanf("%d",&arr[i]);
 		
-	insertionSort(arr,n);
+	insertionSort(arr,n-1);
 	
 	printf("Sorted Array: \n");
 	
